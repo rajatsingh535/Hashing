@@ -1,0 +1,34 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <climits>
+using namespace std;
+
+void findFreq(const vector<int>& a) {
+    unordered_map<int, int> mp;
+    for (int x : a) mp[x]++;
+
+    int maxF = INT_MIN, minF = INT_MAX;
+    int maxN = -1, minN = -1;
+
+    for (auto& p : mp) {
+        int n = p.first, f = p.second;
+        if (f > maxF) {
+            maxF = f;
+            maxN = n;
+        }
+        if (f < minF) {
+            minF = f;
+            minN = n;
+        }
+    }
+
+    cout << "max freq is " << maxN <<  maxF << "times\n";
+    cout << "min freq is " << minN << minF << "times\n";
+}
+
+int main() {
+    vector<int> a = {1, 3, 2, 3, 4, 1, 1}; // Sample input
+    findFreq(a);
+    return 0;
+}
