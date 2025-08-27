@@ -1,28 +1,29 @@
+//Prefix Sum
 
 #include <iostream>
-#include <vector>
- 
+#include<vector>
 using namespace std;
- 
-vector<int> prefixSum(const vector<int>& nums) {
-    int n = nums.size();
-    vector<int> prefix(n + 1, 0);
-    for (int i = 1; i <= n; ++i) {
-        prefix[i] = prefix[i - 1] + nums[i];
+
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n];
+    vector<int> prefix(n);
+    for(int i = 1; i <= n ; i++){
+        cin >> a[i];
+        prefix[i] = prefix[i-1] + a[i];
     }
-    return prefix;
-}
- 
-int optimizedSum(const vector<int>& prefix, int l, int r) {
-    return prefix[r] - prefix[l - 1];
-}
-  
-int main() {
-    vector<int> nums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    vector<int> prefix = prefixSum(nums);
- 
-    int l = 3, r = 7; 
-    cout << "Optimized Sum: " << optimizedSum(prefix, l, r) << endl;
- 
+     int q;
+    cin >> q;
+    while(q--){
+        int l , r;
+        cin >> l >> r;
+        long long sum  = 0;
+        cout << prefix[r] - prefix[l-1] << endl;
+        
+    }
+
+    
     return 0;
 }
