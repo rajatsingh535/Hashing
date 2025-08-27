@@ -11,13 +11,11 @@ vector<pair<int,int>> xyz(vector<int>& arr , int k) {
 
     for (int i = 0; i < n; i++) {
         int num = arr[i];
-        if (h.find(num - k) != h.end()) {
-            result.push_back({h[num - k], i});
-        }
 
         if (h.find(num + k) != h.end()) {
             result.push_back({h[num + k], i});
         }
+
 
         h[num] = i;
     }
