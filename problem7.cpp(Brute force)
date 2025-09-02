@@ -1,0 +1,35 @@
+Brute Force approach : 2 Nested loops
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int maxl = 0, minl = INT_MAX;
+
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = i; j < n; j++) {
+            sum += arr[j];
+
+            if (sum == k) {
+                maxl = max(maxl, j - i + 1);
+                minl = min(minl, j - i + 1);
+            }
+        }
+    }
+
+    if (maxl == 0) {
+        cout << "No subarray found with sum " << k << endl;
+    } else {
+        cout << "Max length = " << maxl << endl;
+        cout << "Min length = " << minl << endl;
+    }
+
+    return 0;
+}
